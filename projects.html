@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Sahil</title>
+    <meta name="description" content="Robotics and perception projects by Sahil.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">sahil<span>.</span></a>
+        <button class="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="assets/resume.pdf" target="_blank" class="btn btn-outline" style="padding:6px 16px;">Resume</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-wrapper">
+
+    <section class="hero" style="padding-bottom:40px;">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-label">Portfolio</div>
+                <h1>Projects</h1>
+                <p>
+                    A mix of coursework and independent work spanning perception,
+                    planning, dynamics, and control.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding-top:0;">
+        <div class="container">
+            <div class="card-grid">
+
+                <!-- Project 1 -->
+                <div class="card fade-in">
+                    <span class="card-tag">RBE 550</span>
+                    <h3>Task and Motion Planning with Genesis</h3>
+                    <p>
+                        Built a full TAMP pipeline for a Franka Panda manipulator
+                        using PDDL-based task planning (Pyperplan) and OMPL for
+                        motion planning. The robot picks and places colored blocks
+                        into multi-goal structures including a pentagon arrangement,
+                        with anti-drift PD control for stability during manipulation.
+                    </p>
+                    <div class="card-tech">
+                        <span>Python</span>
+                        <span>OMPL</span>
+                        <span>Pyperplan</span>
+                        <span>Genesis Sim</span>
+                        <span>PDDL</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card fade-in">
+                    <span class="card-tag">CS 551</span>
+                    <h3>Hierarchical RL for Robot Navigation</h3>
+                    <p>
+                        Implemented a hierarchical reinforcement learning system in
+                        Habitat 2.0 for indoor robot navigation. A high-level policy
+                        selects subgoals while a low-level PPO policy handles
+                        point-to-point navigation. Tuned entropy coefficients to
+                        resolve policy collapse during training.
+                    </p>
+                    <div class="card-tech">
+                        <span>Python</span>
+                        <span>PyTorch</span>
+                        <span>PPO</span>
+                        <span>Habitat 2.0</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card fade-in">
+                    <span class="card-tag">RBE 501</span>
+                    <h3>Robot Dynamics Simulation</h3>
+                    <p>
+                        Full dynamics simulation pipeline in MATLAB for multiple
+                        robot systems (3-DOF arm, UR5, custom 6-DOF). Implemented
+                        inverse dynamics control, forward dynamics integration via
+                        Newton-Euler, and trajectory following using the Product of
+                        Exponentials formulation.
+                    </p>
+                    <div class="card-tech">
+                        <span>MATLAB</span>
+                        <span>Screw Theory</span>
+                        <span>Newton-Euler</span>
+                        <span>PoE</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="card fade-in">
+                    <span class="card-tag">RBE 502</span>
+                    <h3>Nonlinear Robot Control</h3>
+                    <p>
+                        Implemented and analyzed various nonlinear control strategies:
+                        Lyapunov stability proofs, LaSalle's Invariance Principle,
+                        controllability via Lie brackets, unicycle tracking control,
+                        and null-space projection for differential kinematics of
+                        redundant manipulators.
+                    </p>
+                    <div class="card-tech">
+                        <span>MATLAB</span>
+                        <span>Lyapunov</span>
+                        <span>Lie Brackets</span>
+                        <span>LaTeX</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="card fade-in">
+                    <span class="card-tag">RBE 500</span>
+                    <h3>OpenManipulator-X Control</h3>
+                    <p>
+                        End-to-end control pipeline for the OpenManipulator-X in
+                        ROS2. Implemented forward/inverse kinematics using DH
+                        parameters, velocity kinematics via the Jacobian, and
+                        PD joint-space control for trajectory tracking.
+                    </p>
+                    <div class="card-tech">
+                        <span>ROS2</span>
+                        <span>Python</span>
+                        <span>FK / IK</span>
+                        <span>Jacobian</span>
+                    </div>
+                </div>
+
+                <!-- Project 6: placeholder for future -->
+                <div class="card fade-in" style="border-style:dashed; background:transparent;">
+                    <span class="card-tag" style="background:var(--purple-dim); color:var(--purple);">Upcoming</span>
+                    <h3>More on the way</h3>
+                    <p>
+                        Currently working on new projects in perception and
+                        autonomous navigation. Check back soon.
+                    </p>
+                    <div class="card-tech">
+                        <span>???</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Sahil -- Built from scratch, no templates.</p>
+        </div>
+    </footer>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

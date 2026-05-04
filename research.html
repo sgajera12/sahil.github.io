@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Sahil</title>
+    <meta name="description" content="Research in terrain segmentation and LiDAR-camera sensor fusion for autonomous UGVs.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">sahil<span>.</span></a>
+        <button class="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="research.html" class="active">Research</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="assets/resume.pdf" target="_blank" class="btn btn-outline" style="padding:6px 16px;">Resume</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-wrapper">
+
+    <section class="hero" style="padding-bottom:40px;">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-label">AVMI Lab @ WPI</div>
+                <h1>Research</h1>
+                <p>
+                    My research sits at the intersection of computer vision and
+                    autonomous navigation -- making UGVs understand unstructured
+                    terrain well enough to drive through it safely.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding-top:0;">
+        <div class="container">
+
+            <!-- Research Block 1: Terrain Segmentation -->
+            <div class="research-block fade-in">
+                <span class="card-tag">Primary Focus</span>
+                <h3>Semantic Terrain Segmentation for Off-Road Navigation</h3>
+                <p>
+                    Off-road environments don't have lane markings or curbs -- the
+                    robot has to figure out what's drivable (packed dirt, gravel) vs
+                    what's not (tall grass, mud, water) purely from visual data.
+                    That's the problem I'm working on.
+                </p>
+                <p>
+                    I started with GANav (built on MiT-B0), but discovered that its
+                    core group-wise attention mechanism was being bypassed during
+                    training. Instead of patching it, I migrated to a clean SegFormer
+                    MiT-B2 backbone within the MMSegmentation framework. Full
+                    fine-tuning on approximately 6,500 labeled images reached around 52
+                    mIoU, with cross-dataset generalization tested on RUGD and RELLIS-3D.
+                </p>
+                <p>
+                    This involved building a custom AVMIDataset class with RGB
+                    mask-to-index conversion, deep-diving into SegFormer's hierarchical
+                    transformer architecture (patch embeddings, efficient self-attention),
+                    and understanding the tradeoffs in preprocessing and input resizing
+                    for dense prediction tasks.
+                </p>
+                <div class="research-highlights">
+                    <span class="highlight-stat">~52 mIoU</span>
+                    <span class="highlight-stat">SegFormer MiT-B2</span>
+                    <span class="highlight-stat">~6,500 training images</span>
+                    <span class="highlight-stat">MMSegmentation</span>
+                </div>
+                <div class="card-tech" style="margin-top:16px;">
+                    <span>Python</span>
+                    <span>PyTorch</span>
+                    <span>MMSegmentation</span>
+                    <span>SegFormer</span>
+                    <span>RUGD</span>
+                    <span>RELLIS-3D</span>
+                </div>
+            </div>
+
+            <!-- Research Block 2: Sensor Fusion -->
+            <div class="research-block fade-in">
+                <span class="card-tag">Sensor Fusion</span>
+                <h3>LiDAR-Camera Fusion Pipeline</h3>
+                <p>
+                    Cameras give you rich color and texture, but no depth. LiDAR
+                    gives you precise 3D geometry, but no color. Fusing them means
+                    the robot gets both -- it can see what type of terrain is at each
+                    3D point in space.
+                </p>
+                <p>
+                    I built and debugged a ROS2-based fusion pipeline that projects
+                    LiDAR point clouds onto camera images. The tricky part was
+                    handling the coordinate frame mismatch: the simulation environment
+                    (Unreal Engine) uses a left-handed coordinate system, while ROS2
+                    uses right-handed. I also implemented timestamp synchronization
+                    between 30Hz camera frames and 10Hz LiDAR scans, built an
+                    interactive calibration tuner, and wrote tooling to extract and
+                    organize data from ROS2 bag files.
+                </p>
+                <div class="research-highlights">
+                    <span class="highlight-stat">30Hz Camera</span>
+                    <span class="highlight-stat">10Hz LiDAR</span>
+                    <span class="highlight-stat">ROS2 Pipeline</span>
+                    <span class="highlight-stat">UE5 Sim</span>
+                </div>
+                <div class="card-tech" style="margin-top:16px;">
+                    <span>ROS2</span>
+                    <span>Python</span>
+                    <span>Unreal Engine 5.4</span>
+                    <span>Point Clouds</span>
+                    <span>Calibration</span>
+                </div>
+            </div>
+
+            <!-- Publications -->
+            <div class="research-block fade-in">
+                <span class="card-tag" style="background:var(--purple-dim); color:var(--purple);">Publications</span>
+                <h3>Upcoming</h3>
+                <p>
+                    Co-authored publication in progress with the AVMI lab.
+                    Details will be added once published.
+                </p>
+                <!-- TODO: Add publication details when available
+                <p>
+                    Author 1, Author 2, <strong>Sahil</strong>, et al.
+                    "Paper Title." <em>Conference/Journal</em>, Year.
+                    <a href="#">[PDF]</a> <a href="#">[Code]</a>
+                </p>
+                -->
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Sahil -- Built from scratch, no templates.</p>
+        </div>
+    </footer>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
